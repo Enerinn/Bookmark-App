@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}Bookmarks{% endblock %}
+
+{% block header %}
+    <h2>{{username}}'s Bookmarks</h2>
+{% endblock %}
+
+
+{% block content %}
+<div class="bookmark-display">
+    {% for bookmark in bookmarks %}
+        <div class="box">
+            <a href="{{ bookmark.url }}" target="_blank">
+                <img src="{{bookmark.image}}" alt="Image not found">
+            </a>
+            <p><b><a href="{{ bookmark.url }}" target="_blank">{{ bookmark.title}}</a></b></p>
+            <p class="chapter-display">Latest Chapter:<span>{{bookmark.latest_chapter}}</span></p>
+            <p class="chapter-display">Chapters Read:<span>Chapter {{bookmark.chapters_read}}</span></p>
+            <form action="/delete_bookmark/{{bookmark.id}}" method="post">
+                <input type="submit" value="Remove" class="delete-btn">
+            </form>
+        </div>
+    {% endfor %}
+</div>
+<table>
+{% endblock %}
+

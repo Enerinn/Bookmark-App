@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}Add Bookmark{% endblock %}
+{% block header %}
+    <h2>Add Bookmark</h2>
+{% endblock %}
+{% block content %}
+<div class="input-display">
+    <form action="/add_bookmark" method="post">
+        <div class="input-group">
+        <label for="url">URL</label><br>
+        <input type="url" id="url" name="url" class="add-bookmark-input-box" placeholder="https://example.com" required><br>
+        </div>
+        <div class="input-group">
+        <label for="chapters_read">Chapters Read</label><br>
+        <input type="number" id="chapters_read" name="chapters_read" class="add-bookmark-input-box" min="0" placeholder="0" required><br>
+        </div>
+        <input type="submit" value="Add Bookmark" class="add-bookmark-btn">
+    </form>
+</div>
+{% endblock %}
